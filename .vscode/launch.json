@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Jest",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "stopOnEntry": false,
+      "args": ["-i", "${file}"],
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": null,
+      "sourceMaps": true,
+      "env": { "NODE_ENV": "test" }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "${workspaceRoot}/dist/index.js",
+      "cwd": "${workspaceRoot}",
+      "preLaunchTask": "build",
+      "outFiles": ["${workspaceRoot}/dist/**.js"]
+    },
+    {
+      "name": "Attach to Process",
+      "type": "node",
+      "request": "attach",
+      "port": 9229
+    }
+  ]
+}

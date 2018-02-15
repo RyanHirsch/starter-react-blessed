@@ -1,0 +1,58 @@
+{
+  "name": "react-blessed-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint-staged": "lint-staged",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "babel src --ignore '__tests__' -d dist",
+    "build:debug": "npm run build -- --source-maps=inline",
+    "dev": "babel-watch src/index.js",
+    "prestart": "npm run build",
+    "start": "node dist/index.js",
+    "lint": "eslint src",
+    "test": "jest"
+  },
+  "pre-commit": [
+    "test",
+    "lint-staged"
+  ],
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "author": "Ryan Hirsch <ryan.hirsch@gmail.com> (http://hirsch.io)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-react": "^1.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-watch": "^2.0.7",
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.6.1",
+    "jest": "^21.2.1",
+    "lint-staged": "^6.1.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.10.2",
+    "rimraf": "^2.6.1"
+  },
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "react": "^16.2.0",
+    "react-blessed": "^0.2.1",
+    "winston": "^3.0.0-rc1"
+  }
+}
