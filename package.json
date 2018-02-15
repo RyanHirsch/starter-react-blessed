@@ -10,15 +10,14 @@
     "build": "babel src --ignore '__tests__' -d dist",
     "build:debug": "npm run build -- --source-maps=inline",
     "dev": "babel-watch src/index.js",
+    "predebug": "npm run build:debug",
+    "debug": "node --inspect-brk dist/index.js",
     "prestart": "npm run build",
     "start": "node dist/index.js",
     "lint": "eslint src",
     "test": "jest"
   },
-  "pre-commit": [
-    "test",
-    "lint-staged"
-  ],
+  "pre-commit": ["test", "lint-staged"],
   "lint-staged": {
     "*.js": "eslint"
   },
